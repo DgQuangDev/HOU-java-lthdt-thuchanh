@@ -1,6 +1,6 @@
 package bai15;
 import java.util.Scanner;
-public class Bai15 {
+public class main {
     
     static void menu(){
         System.out.println("1. Nhap danh sach hoc sinh");
@@ -17,7 +17,7 @@ public class Bai15 {
         
         do {            
             menu();
-            System.out.println("Lua chon: ");
+            System.out.print("Lua chon: ");
             chon = sc.nextInt();
             switch(chon){
                 case 1: d.nhapDS();break;
