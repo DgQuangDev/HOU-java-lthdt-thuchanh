@@ -10,7 +10,8 @@ public class Main {
         System.out.println("2. Quan ly nhan vien");
         System.out.println("3. Quan ly san pham");
         System.out.println("4. Quan ly hoa don");
-        System.out.println("5. Thoat");
+        System.out.println("5. Quan ly can bo quan ly");
+        System.out.println("6. Thoat");
         System.out.println("=================================");
     }
 
@@ -20,6 +21,7 @@ public class Main {
         ListEmployee listEmployee = new ListEmployee();
         ListProduct listProduct = new ListProduct();
         ListInvoice listInvoice = new ListInvoice();
+        ListManager listManager = new ListManager();
 
         int choice;
         do {
@@ -173,10 +175,7 @@ public class Main {
                         System.out.println("===== QUAN LY HOA DON =====");
                         System.out.println("1. Nhap danh sach hoa don");
                         System.out.println("2. Hien thi danh sach hoa don");
-                        System.out.println("3. Them hoa don moi");
-                        System.out.println("4. Xoa hoa don theo ma");
-                        System.out.println("5. Sap xep hoa don theo tong tien");
-                        System.out.println("6. Quay lai");
+                        System.out.println("5. Quay lai");
                         System.out.println("===============================");
                         System.out.println("Nhap lua chon cua ban: ");
                         invoiceChoice = scanner.nextInt();
@@ -208,8 +207,42 @@ public class Main {
                         }
                     } while (invoiceChoice != 6);
                     break;
-
                 case 5:
+                    // Menu cho quản lý cán bộ
+                    int managerChoice;
+                    do {
+                        System.out.println("===== QUAN LY CAN BO QUAN LY =====");
+                        System.out.println("1. Nhap danh sach can bo quan ly");
+                        System.out.println("2. Hien thi danh sach can bo quan ly");
+                        System.out.println("3. Hien thi danh sach can bo quan ly theo ma can bo (managerID)");
+                        System.out.println("===============================");
+                        System.out.println("Nhap lua chon cua ban: ");
+                        managerChoice = scanner.nextInt();
+                        scanner.nextLine(); // Đọc bỏ dòng trống
+
+                        switch (managerChoice) {
+                            case 1: // Nhap
+                                listManager.inputListManager();
+                                break;
+                            case 2: // in ra man hình
+                                listManager.outputListManager();
+                                break;
+                            case 3: // In ra màn hình theo điều kiện đúng với mã cán bộ cần in
+                                System.out.println("Nhap ma can bo quan ly can in: ");
+                                String managerID = scanner.nextLine();
+                                Manager foundManager = listManager.findManagerByID(managerID);
+                                if (foundManager != null) {
+                                    foundManager.outputManager();
+                                } else {
+                                    System.out.println("Khong tim thay san pham voi ma " + managerID);
+                                }
+                                break;
+                             
+                         }
+                    } while (managerChoice != 5);
+                    break;
+                
+                case 6:
                     System.out.println("Cam on ban da su dung chuong trinh!");
                     break;
 
