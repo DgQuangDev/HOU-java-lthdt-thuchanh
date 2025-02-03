@@ -58,15 +58,5 @@ public class ListManager {
         }
         return null; // Trả về null nếu không tìm thấy
     }
-    public void sortInvoicesByIDAscending() {
-        Collections.sort(listManagers, new Comparator<Invoice>() {
-            @Override
-            public int compare(Invoice o1, Invoice o2) {
-                return Integer.compare(o1.getInvoiceID(), o2.getInvoiceID());
-            }
-        });
-    }
-
-
 
 }
